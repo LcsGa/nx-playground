@@ -1,0 +1,68 @@
+{
+  "name": "buffer-while",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "nx-playground",
+  "sourceRoot": "apps/buffer-while/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/buffer-while",
+        "index": "apps/buffer-while/src/index.html",
+        "main": "apps/buffer-while/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/buffer-while/tsconfig.app.json",
+        "assets": ["apps/buffer-while/src/favicon.ico", "apps/buffer-while/src/assets"],
+        "styles": ["apps/buffer-while/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "buffer-while:build:production"
+        },
+        "development": {
+          "browserTarget": "buffer-while:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "buffer-while:build"
+      }
+    }
+  }
+}
