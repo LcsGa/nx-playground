@@ -1,0 +1,71 @@
+{
+  "name": "debounce-time-map",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "nx-playground",
+  "sourceRoot": "apps/debounce-time-map/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/debounce-time-map",
+        "index": "apps/debounce-time-map/src/index.html",
+        "main": "apps/debounce-time-map/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/debounce-time-map/tsconfig.app.json",
+        "assets": [
+          "apps/debounce-time-map/src/favicon.ico",
+          "apps/debounce-time-map/src/assets"
+        ],
+        "styles": ["apps/debounce-time-map/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "debounce-time-map:build:production"
+        },
+        "development": {
+          "browserTarget": "debounce-time-map:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "debounce-time-map:build"
+      }
+    }
+  }
+}
