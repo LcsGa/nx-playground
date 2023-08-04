@@ -10,9 +10,11 @@ import { ButtonComponent } from '@lcsga/components';
 
     <pg-button shift meta alt shortcut="g" (action)="sayGoodbye()">Say "Good bye!"</pg-button>
 
-    <pg-button shortcut="n" (action)="saySomething()">Say "Something"</pg-button>
+    <pg-button shortcut="n" (action)="saySomething()" [handleClick]="false" (mouseup)="saySomething()">
+      Say "Something"
+    </pg-button>
 
-    <pg-button (click)="sayNothing()">Say "Nothing"</pg-button>
+    <pg-button (action)="sayNothing()">Say "Nothing"</pg-button>
   `,
   styles: [':host { @apply flex gap-x-4 p-4 }'],
 })

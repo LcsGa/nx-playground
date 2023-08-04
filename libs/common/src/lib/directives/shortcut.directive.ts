@@ -46,10 +46,10 @@ export class ShortcutDirective {
     this.#$handleClick.set(handleClick);
   }
 
-  private readonly onShortcut$ = toObservable(this.#$shortcut).pipe(
-    filter((shortcut): shortcut is string => shortcut !== null),
-    switchMap((shortcut) =>
-      merge(
+  private readonly onShortcut$ = merge(
+    toObservable(this.#$shortcut).pipe(
+      filter((shortcut): shortcut is string => shortcut !== null),
+      switchMap((shortcut) =>
         fromEvent<KeyboardEvent>(window, this.eventType).pipe(
           filter(
             ({ key, shiftKey, ctrlKey, metaKey, altKey }) =>
@@ -60,18 +60,18 @@ export class ShortcutDirective {
               metaKey === this.meta &&
               altKey === this.alt
           )
-        ),
-        fromEvent<MouseEvent>(this.element, 'click').pipe(
-          filter(() => this.#$handleClick()),
-          tap((ev) => ev.stopPropagation())
         )
-      ).pipe(
-        tap((ev) => {
-          ev.preventDefault();
-          this.action.emit();
-        })
       )
     ),
+    fromEvent<MouseEvent>(this.element, 'click').pipe(
+      filter(() => this.#$handleClick()),
+      tap((ev) => ev.stopPropagation())
+    )
+  ).pipe(
+    tap((ev) => {
+      ev.preventDefault();
+      this.action.emit();
+    }),
     ignoreElements()
   );
 
