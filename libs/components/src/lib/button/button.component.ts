@@ -18,7 +18,7 @@ import { ShortcutDirective } from '@lcsga/common';
   hostDirectives: [
     {
       directive: ShortcutDirective,
-      inputs: ['shortcut', 'eventType', 'disabled', 'shift', 'ctrl', 'meta', 'alt'],
+      inputs: ['shortcut', 'eventType', 'disabled', 'shift', 'ctrl', 'meta', 'alt', 'handleClick'],
       outputs: ['action'],
     },
   ],

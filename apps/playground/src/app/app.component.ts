@@ -6,11 +6,11 @@ import { ButtonComponent } from '@lcsga/components';
   imports: [ButtonComponent],
   selector: 'nx-playground-root',
   template: `
-    <pg-button ctrl shortcut="h" (action)="sayHello()" (click)="sayHello()">Say "Hello!"</pg-button>
+    <pg-button ctrl shortcut="h" (action)="sayHello()">Say "Hello!"</pg-button>
 
-    <pg-button shift meta alt shortcut="g" (action)="sayGoodbye()" (click)="sayGoodbye()">Say "Good bye!"</pg-button>
+    <pg-button shift meta alt shortcut="g" (action)="sayGoodbye()">Say "Good bye!"</pg-button>
 
-    <pg-button shortcut="n" (action)="saySomething()" (click)="saySomething()">Say "Something"</pg-button>
+    <pg-button shortcut="n" (action)="saySomething()">Say "Something"</pg-button>
 
     <pg-button (click)="sayNothing()">Say "Nothing"</pg-button>
   `,
