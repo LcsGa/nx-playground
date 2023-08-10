@@ -1,22 +1,22 @@
 {
-  "name": "playground",
+  "name": "shortcuts",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "nx-playground",
-  "sourceRoot": "apps/playground/src",
+  "sourceRoot": "apps/shortcuts/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/playground",
-        "index": "apps/playground/src/index.html",
-        "main": "apps/playground/src/main.ts",
+        "outputPath": "dist/apps/shortcuts",
+        "index": "apps/shortcuts/src/index.html",
+        "main": "apps/shortcuts/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/playground/tsconfig.app.json",
-        "assets": ["apps/playground/src/favicon.ico", "apps/playground/src/assets"],
-        "styles": ["apps/playground/src/styles.scss"],
+        "tsConfig": "apps/shortcuts/tsconfig.app.json",
+        "assets": ["apps/shortcuts/src/favicon.ico", "apps/shortcuts/src/assets"],
+        "styles": ["apps/shortcuts/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -50,10 +50,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "playground:build:production"
+          "browserTarget": "shortcuts:build:production"
         },
         "development": {
-          "browserTarget": "playground:build:development"
+          "browserTarget": "shortcuts:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -61,14 +61,14 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "playground:build"
+        "browserTarget": "shortcuts:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/playground/**/*.ts", "apps/playground/**/*.html"]
+        "lintFilePatterns": ["apps/shortcuts/**/*.ts", "apps/shortcuts/**/*.html"]
       }
     }
   }
